@@ -9,11 +9,9 @@ class Dashboard extends CI_Controller {
 		$this->load->library(array('session','form_validation',));
 		$this->load->helper(array('url','form','security'));
 		$this->load->model('M_album');
-		
-		// $logged_in = $this->session->userdata('status')=='login' && ($this->session->userdata('profil')=='1' || $this->session->userdata('profil')=='2');
-		// if(!$logged_in){
-		// 	redirect('Login');
-		// }
+		if ($this->session->userdata('statses') != "login") {
+		redirect(base_url());
+	}
 	}
 
 	public function index()
@@ -25,7 +23,7 @@ class Dashboard extends CI_Controller {
 
 	}
 
-	public function dashboard_album ()
+	public function album ()
 	{
 
 		
@@ -33,7 +31,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('V_footer_dashboard');
 
 	}
-	public function dashboard_photos()
+	public function photos()
 	{
 
 		

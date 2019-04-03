@@ -17,8 +17,13 @@ class Register extends CI_Controller {
 
 	public function index()
 	{
-		//$this->load->view('V_header');
+		if ($this->session->userdata('statses') == "login") {
+		redirect(base_url());
+	}else{
 		$this->load->view('V_register');
+	}
+		//$this->load->view('V_header');
+		
 		///$this->load->view('V_footer');
 	}
 

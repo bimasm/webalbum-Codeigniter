@@ -58,7 +58,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo base_url('Dashboard/dashboard_album'); ?>">
+          <a href="<?php echo base_url('Dashboard/album'); ?>">
             <i class="fa fa-file">
               <span class="icon-bg rad-bg-primary"></span>
             </i>
@@ -66,7 +66,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo base_url('Dashboard/dashboard_photos'); ?>">
+          <a href="<?php echo base_url('Dashboard/photos'); ?>">
             <i class="fa fa-image">
               <span class="icon-bg rad-bg-danger"></span>
             </i>

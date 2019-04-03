@@ -105,9 +105,15 @@
        <a href="<?php echo base_url('Home'); ?>""> <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"><?php foreach ($album as $row) { ?><?php echo $row->nama_album;?><?php } ?></h1>
        </a>
      </div>
-     <div class="col-6" align="right">
+     <?php 
+     	if ($this->session->userdata('statses')=="login") {
+     		echo '<div class="col-6" align="right">
       <span ><a href="" style="margin-top: 30px" data-toggle="modal" data-target="#modal_add" class="btn btn-primary btn-xl shadow"><i class="fa fa-plus"></i>&nbsp; Add Photos</a></span>
-    </div>
+    </div>';
+     	}else{
+     		
+     	}
+     ?>
   </div>
   <hr class="mt-2 mb-5">
 <?php $no = 1; ?>

@@ -3,7 +3,7 @@
 class M_notif extends CI_Model{
 
 	function show(){
-		return $this->db->get('notification')->result();
+		return $this->db->query("SELECT * FROM `notification` ORDER BY `id_notif` desc")->result();
 	}
 	function jumlah(){
 		return $this->db->query("SELECT COUNT(  `id_notif` ) AS total FROM notification")->result();

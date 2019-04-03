@@ -12,19 +12,17 @@ class Admin extends CI_Controller {
 		$this->load->model('M_user');
 		$this->load->model('M_album');
 
-
-		
-		// $logged_in = $this->session->userdata('status')=='login' && ($this->session->userdata('profil')=='1' || $this->session->userdata('profil')=='2');
-		// if(!$logged_in){
-		// 	redirect('Login');
-		// }
 	}
 
 	public function index()
 	{
 
-		
+		if ($this->session->userdata('statses') == "admin") {
+		redirect(base_url('admin/dashboard'));
+	}else{
 		$this->load->view('V_dashboard_admin_login');
+	}
+		
 		
 
 	}
@@ -49,7 +47,11 @@ class Admin extends CI_Controller {
 	{
 
 		if ($this->session->userdata('statses') == "admin") {
-		$this->load->view('V_dashboard_photos_admin');
+		$data['notification'] = $this->M_notif->show();
+		$data['angka'] = $this->M_notif->jumlah();
+		$data['jmluser'] = $this->M_notif->jmluser();
+		$data['jmlalbum'] = $this->M_notif->jmlalbum();
+		$this->load->view('V_dashboard_photos_admin',$data);
 		$this->load->view('V_footer_dashboard');
 		}else{
 		redirect(base_url("admin"));
@@ -75,7 +77,11 @@ class Admin extends CI_Controller {
 	{
 
 		if ($this->session->userdata('statses') == "admin") {
-		$this->load->view('V_dashboard_user_admin');
+		$data['notification'] = $this->M_notif->show();
+		$data['angka'] = $this->M_notif->jumlah();
+		$data['jmluser'] = $this->M_notif->jmluser();
+		$data['jmlalbum'] = $this->M_notif->jmlalbum();
+		$this->load->view('V_dashboard_user_admin',$data);
 		$this->load->view('V_footer_dashboard');
 		}else{
 		redirect(base_url("admin"));

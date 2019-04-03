@@ -18,7 +18,7 @@
 
 <body>
 
-    <section>
+      <section>
     <header>
       <nav class="rad-navigation">
         <div class="rad-logo-container">
@@ -56,8 +56,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li> <a class="dropdown-item" href="<?php echo base_url('admin/logout'); ?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
-                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
-
+                
               </ul>
             </li>
 
