@@ -105,7 +105,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign In</title>
+	<title>Administrator Log In</title>
 	
 
 	<!--Bootsrap 4 CDN-->
@@ -122,11 +122,11 @@
 		<div class="d-flex justify-content-center h-100">
 			<div class="card">
 				<div class="card-body">
-					<h3>Sign In</h3>
+					<h3>Administrator Log In</h3>
 					<div class="d-flex justify-content-end social_icon">
 					</div>
 					<br>
-					<form method="post" action="<?php echo base_url('login/login'); ?>">
+					<form method="post" action="<?php echo base_url('admin/login'); ?>">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -140,9 +140,7 @@
 							</div>
 							<input type="password" class="form-control" placeholder="password" name="password">
 						</div>
-						<div class="input-group form-group">
-							Don't have an account?&nbsp;&nbsp;<a href="<?php echo base_url('Register'); ?>">Sign Up</a>
-						</div>
+						
 						<div class="form-group">
 					<!-- 	
 								<input type="submit" value="Login" class="btn float-right login_btn">

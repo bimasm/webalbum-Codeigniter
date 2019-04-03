@@ -18,7 +18,7 @@
 
 <body>
 
-  <section>
+    <section>
     <header>
       <nav class="rad-navigation">
         <div class="rad-logo-container">
@@ -29,13 +29,23 @@
           <ul class="links">
             
             
-            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge">49</span></i></a>
+            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge"><?php foreach($angka as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?>
+                    
+                  </span></i></a>
               <ul class="rad-dropmenu-item">
                 <li class="rad-dropmenu-header"><a href="#">Your Notifications</a></li>
                 <li class="rad-notification-item">
+                <?php 
+                    foreach($notification as $u){ 
+                        ?>
                   <a class="rad-notification-content" href="#">
-
-                  </a>
+                   <?php echo $u->keterangan; ?> <b><?php echo $u->username; ?></b>
+                  </a><br><br>
+                  <?php } ?>
                 </li>
                 <li class="rad-dropmenu-footer"><a href="#">See all notifications</a></li>
               </ul>
@@ -45,7 +55,7 @@
                 <i class="fa fa-user"></i>&nbsp; <b><?php echo $this->session->userdata('nama') ?></b>
               </a>
               <ul class="dropdown-menu">
-                <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('admin/logout'); ?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
                 <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
 
               </ul>
@@ -61,13 +71,13 @@
   <aside>
     <nav class="rad-sidebar">
       <ul>
-        <li class="hidup">
+        <li>
           <a href="<?php echo base_url('admin/dashboard'); ?>" class="inbox">
             <i class="fa fa-dashboard"><span class="icon-bg rad-bg-success"></span></i>
             <span class="rad-sidebar-item">Dashboard</span>
           </a>
         </li>
-        <li>
+        <li class="hidup">
           <a href="<?php echo base_url('admin/album'); ?>">
             <i class="fa fa-file">
               <span class="icon-bg rad-bg-primary"></span>
@@ -129,12 +139,14 @@
                       <tbody>
                         <?php
                         $no = 1;
-                        for ($i=0; $i < 5; $i++) { 
+                        foreach ($album as $key) {
+                           # code...
+                          
                           ?>
                           <tr>
                             <th style="text-align: center;"><?php echo $no++ ?></th>
-                            <th style="text-align: center;"> haha </th>
-                            <th style="text-align: center;"> hihi </th>
+                            <th style="text-align: center;"><?php echo $key->nama_album;?></th>
+                            <th style="text-align: center;"><?php echo $key->keterangan;?></th>
                             <th>
                              <center>
                               <div class="dropdown">

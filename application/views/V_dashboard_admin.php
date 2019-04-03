@@ -29,13 +29,23 @@
           <ul class="links">
             
             
-            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge">49</span></i></a>
+            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge"><?php foreach($angka as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?>
+                    
+                  </span></i></a>
               <ul class="rad-dropmenu-item">
                 <li class="rad-dropmenu-header"><a href="#">Your Notifications</a></li>
                 <li class="rad-notification-item">
+                <?php 
+                    foreach($notification as $u){ 
+                        ?>
                   <a class="rad-notification-content" href="#">
-
-                  </a>
+                   <?php echo $u->keterangan; ?> <b><?php echo $u->username; ?></b>
+                  </a><br><br>
+                  <?php } ?>
                 </li>
                 <li class="rad-dropmenu-footer"><a href="#">See all notifications</a></li>
               </ul>
@@ -45,7 +55,7 @@
                 <i class="fa fa-user"></i>&nbsp; <b><?php echo $this->session->userdata('nama') ?></b>
               </a>
               <ul class="dropdown-menu">
-                <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('admin/logout'); ?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
                 <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
 
               </ul>
@@ -109,16 +119,44 @@
         <div class="container-fluid">
 
           <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Bar Chart</h3>
-                </div>
-                <div class="panel-body">
-                  <div id="barChart" class="rad-chart"></div>
-                </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading1">
+                <h3 class="panel-title text-center">User</h3>
+              </div>
+              <div class="panel-body">
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b><?php foreach($jmluser as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?></b></h1>
               </div>
             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading2">
+                <h3 class="panel-title text-center">Album</h3>
+              </div>
+              <div class="panel-body">
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b><?php foreach($jmlalbum as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?></b></h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading3">
+                <h3 class="panel-title text-center">Foto</h3>
+              </div>
+              <div class="panel-body">
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b>233</b></h1>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

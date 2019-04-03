@@ -22,7 +22,7 @@
 	}
 
 	.card{
-		height: 370px;
+		height: 470px;
 		margin-top: auto;
 		margin-bottom: auto;
 		width: 400px;
@@ -126,42 +126,42 @@
 					<div class="d-flex justify-content-end social_icon">
 					</div>
 					<br>
-					<form action="">
+					<form method="post" action="<?php echo base_url(); ?>register/do_register">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="far fa-address-book"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="full name">
+							<input type="text" class="form-control" placeholder="full name" name="nama">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="email">
+							<input type="text" class="form-control" placeholder="email" name="email">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-phone"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="phone number">
+							<input type="text" class="form-control" placeholder="phone number" name="no_telp">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="username">
+							<input type="text" class="form-control" placeholder="username" name="username">
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control" placeholder="password">
+							<input type="password" class="form-control" placeholder="password" name="password">
 						</div>
-						<div class="row align-items-center">
+						<div class="input-group form-group">
 							Already have an account?&nbsp;&nbsp;<a href="<?php echo base_url('Login'); ?>"> Sign In</a>
 						</div>
 						<div class="form-group">
@@ -171,7 +171,7 @@
 							<br>
 							<center>
 								<a href="<?php echo base_url('Home'); ?>">
-									<input type="button" value="Register" class="btn login_btn">
+									<input type="submit" value="Register" class="btn login_btn">
 								</a>
 							</center>
 						</div>

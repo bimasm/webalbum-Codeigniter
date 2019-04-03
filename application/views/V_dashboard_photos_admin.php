@@ -46,7 +46,11 @@
               </a>
               <ul class="dropdown-menu">
                 <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
-                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>">
+
+                <!-- <i class="fa fa-cog"></i> -->
+
+                &nbsp;Profile Setting</a></li>
 
               </ul>
             </li>
@@ -57,11 +61,11 @@
     </header>
   </section>
 
-
+ 
   <aside>
     <nav class="rad-sidebar">
       <ul>
-        <li class="hidup">
+        <li>
           <a href="<?php echo base_url('admin/dashboard'); ?>" class="inbox">
             <i class="fa fa-dashboard"><span class="icon-bg rad-bg-success"></span></i>
             <span class="rad-sidebar-item">Dashboard</span>
@@ -75,7 +79,7 @@
             <span class="rad-sidebar-item">Album</span>
           </a>
         </li>
-        <li>
+        <li class="hidup">
           <a href="<?php echo base_url('admin/photos'); ?>">
             <i class="fa fa-image">
               <span class="icon-bg rad-bg-danger"></span>
@@ -91,17 +95,19 @@
             <span class="rad-sidebar-item">Users</span>
           </a>
         </li>
+        
 <!--         <li><a href="#" class="snooz">
           <i class="fa fa-line-chart">
             <span class="icon-bg rad-bg-primary"></span>
           </i>
-          <span class="rad-sidebar-item">Call trends</span>
+          <span class="rad-sidebar-it<i class="fas fa-cog">em">Call trends</span>
         </a></li>
         <li><a href="#" class="done"><i class="fa fa-area-chart"><span class="icon-bg rad-bg-warning"></span></i><span class="rad-sidebar-item">Heat maps</span></a></li>
         <li><a href="#"><i class="fa fa-wrench"><span class="icon-bg rad-bg-violet"></span></i><span class="rad-sidebar-item">Settings</span></a></li> -->
       </ul>
     </nav>
   </aside>
+
 
   <main>
     <section>

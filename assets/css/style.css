@@ -14,7 +14,7 @@ a:hover {
   text-decoration: none;
 }
 .hidup{
-  background: #fd5d5d;
+  background: #263340;
 }
 .rad-navigation {
   position: fixed;
@@ -154,7 +154,7 @@ a:hover {
 .rad-sidebar {
   z-index: 9999;
   position: fixed;
-  background: #000000;
+  background: #2f4050;
   width: 225px;
   height: 100vh;
   top: 50px;
@@ -197,7 +197,7 @@ a:hover {
 }
 
 .rad-sidebar li:hover {
-  background: #fd5d5d;
+  background: #263340;
 }
 
 
@@ -347,26 +347,14 @@ a:hover {
   border-radius: 0 !important;
 }
 
-.panel-heading1 {
-  background: #f94d4d !important;
-  border-radius: 0;
-  padding: 15px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-.panel-heading2 {
-  background: #3a92ec !important;
-  border-radius: 0;
-  padding: 15px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-.panel-heading3 {
-  background: #0c9649 !important;
+.panel-heading {
+  background: #2f4050 !important;
   border-radius: 0;
   padding: 15px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
-.panel-heading1,.panel-heading2,.panel-heading3,.panel-title {
+.panel-heading .panel-title {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 12px;

@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Start Bootstrap">
-	<title>EAD Galery</title>
+	<?php foreach ($album as $row) { ?><title><?php echo $row->nama_album;?></title><?php } ?>
 	<link rel="icon" href="<?php echo base_url(); ?>assets/images/logo.png">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/style-template.css">
@@ -96,3 +96,85 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<section class="after-loop">
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-6">
+       <a href="<?php echo base_url('Home'); ?>""> <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"><?php foreach ($album as $row) { ?><?php echo $row->nama_album;?><?php } ?></h1>
+       </a>
+     </div>
+     <div class="col-6" align="right">
+      <span ><a href="" style="margin-top: 30px" data-toggle="modal" data-target="#modal_add" class="btn btn-primary btn-xl shadow"><i class="fa fa-plus"></i>&nbsp; Add Photos</a></span>
+    </div>
+  </div>
+  <hr class="mt-2 mb-5">
+<?php $no = 1; ?>
+  <div class="row text-center text-lg-left">
+<?php foreach ($show as $o) { ?>
+    <div class="col-lg-3 col-md-4 col-6">
+      <a data-toggle="modal" data-target="#modal_image<?php echo $no++ ?>">
+        <img style="width:300px;height:200px" class="img-fluid img-thumbnail" onclick="lightbox(0)" src="<?php echo base_url('assets/uploads/').$o->gambar; ?>" alt="">
+      </a>
+    </div>
+<?php } ?>
+  </div>
+
+</div>
+<!-- /.container -->
+</section>
+</main>
+
+
+<!-- Modal -->
+<div id="modal_add" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Photos</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form action="<?php echo base_url(); ?>album/add_photo" method = "POST" enctype="multipart/form-data" >
+        <div class="modal-body">  
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="form-control-label" for="input-address">File</label>
+              <input type="file"  name="gambar" required="">
+            </div>
+           
+            <div class="form-group">
+              <label class="form-control-label" for="input-address">Description</label>
+              <textarea class="form-control" name="deskripsi"></textarea>
+              <input type="text" name="album" value="<?php foreach ($album as $row) { ?><?php echo $row->nama_album;?><?php } ?>" hidden>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn text-white btn btn-primary" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<?php $noo = 1; ?>
+<?php foreach ($show as $o) { ?>
+<!-- modal gambar -->
+<div id="modal_image<?php echo $noo++ ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Detail Photos</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+    <img class="img-fluid img-thumbnail" onclick="lightbox(0)" src="<?php echo base_url('assets/uploads/').$o->gambar; ?>" alt=""><br><br>
+    <span><?php echo $o->deskripsi; ?></span>
+    </div>
+  </div>
+</div>
+<?php } ?>

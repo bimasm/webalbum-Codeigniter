@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -19,21 +19,36 @@ class Home extends CI_Controller {
 	public function index()
 	{
 
-		$this->load->view('V_header');
-		$data['album'] = $this->M_album->show_album();
-		$this->load->view('V_home',$data);
-		$this->load->view('V_footer');
+
+		$this->load->view('V_dashboard_user');
+		$this->load->view('V_footer_dashboard');
+
 	}
-	public function do_add_album()
+
+	public function dashboard_album ()
 	{
-		$nama_album=$this->input->post('nama_album');
-		$keterangan=$this->input->post('keterangan');
-		$owner=$this->session->userdata('username');
+
 		
+		$this->load->view('V_dashboard_album');
+		$this->load->view('V_footer_dashboard');
+
+	}
+	public function dashboard_photos()
+	{
+
 		
-		$this->M_album->add_album($nama_album,$keterangan,$owner);
-		redirect(base_url());
+		$this->load->view('V_dashboard_photos');
+		$this->load->view('V_footer_dashboard');
+
+	}
+
+	public function user_profile()
+	{
+
 		
+		$this->load->view('V_dashboard_user_profile');
+		$this->load->view('V_footer_dashboard');
+
 	}
 
 }
