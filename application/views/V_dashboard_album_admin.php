@@ -131,7 +131,7 @@
 
                           <th style="text-align: center;">No</th>
                           <th style="text-align: center;">Album Name</th>
-                          <th style="text-align: center;">Album Description</th>
+                          <th style="text-align: center;">Album Owner</th>
                           <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
@@ -145,7 +145,7 @@
                           <tr>
                             <th style="text-align: center;"><?php echo $no++ ?></th>
                             <th style="text-align: center;"><?php echo $key->nama_album;?></th>
-                            <th style="text-align: center;"><?php echo $key->keterangan;?></th>
+                            <th style="text-align: center;"><?php echo $key->owner;?></th>
                             <th>
                              <center>
                               <div class="dropdown">

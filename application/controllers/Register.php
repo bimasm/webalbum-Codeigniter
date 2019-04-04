@@ -26,7 +26,7 @@ class Register extends CI_Controller {
 		
 		///$this->load->view('V_footer');
 	}
-
+ 
 	public function do_register()
 	{
 		$nama=$this->input->post('nama');

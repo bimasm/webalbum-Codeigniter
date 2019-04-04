@@ -9,6 +9,8 @@ class Dashboard extends CI_Controller {
 		$this->load->library(array('session','form_validation',));
 		$this->load->helper(array('url','form','security'));
 		$this->load->model('M_album');
+		$this->load->model('M_user');
+
 		if ($this->session->userdata('statses') != "login") {
 		redirect(base_url());
 	}
@@ -40,13 +42,18 @@ class Dashboard extends CI_Controller {
 
 	}
 
-	public function user_profile()
+	public function user_profile($username)
 	{
-
+		$username=$this->uri->segment('3');
+		$data['user']=$this->M_user->edit($username);
 		
-		$this->load->view('V_dashboard_user_profile');
+		$this->load->view('V_dashboard_user_profile',$data);
 		$this->load->view('V_footer_dashboard');
 
+	}
+	function update_user($username){
+		$this->M_user->do_edit($username);
+		redirect(base_url('Dashboard/user_profile/').$this->session->userdata('username'));
 	}
 
 }

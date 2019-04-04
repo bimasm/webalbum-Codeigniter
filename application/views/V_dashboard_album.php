@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - album</title>
+  <title>User Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
@@ -18,7 +18,7 @@
 
 <body>
 
-    <section>
+  <section>
     <header>
       <nav class="rad-navigation">
         <div class="rad-logo-container">
@@ -35,8 +35,9 @@
                 <i class="fa fa-user"></i>&nbsp; <b><?php echo $this->session->userdata('nama') ?></b>
               </a>
               <ul class="dropdown-menu">
-                <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
-                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                
+                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile/').$this->session->userdata('username'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('login/logout');?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
 
               </ul>
             </li>
@@ -46,7 +47,6 @@
       </nav>
     </header>
   </section>
-
 
   <aside>
     <nav class="rad-sidebar">

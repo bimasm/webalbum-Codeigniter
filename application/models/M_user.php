@@ -23,4 +23,20 @@ class M_user extends CI_Model{
 		function cek_admin($username,$password){		
 		return $this->db->query("SELECT * FROM `admin` WHERE `username`='$username' AND `password`='$password' LIMIT 1");
 	}
+	function user(){
+		return $this->db->get('user')->result();
+	}
+	function edit($username){
+		$this->db->where('username',$username);
+		return $this->db->get('user')->result();
+	}
+	function do_edit($username){
+		$nama=$this->input->post('nama');
+		$email=$this->input->post('email');
+		$no_telp=$this->input->post('no_telp');
+		$password=$this->input->post('password');
+		
+		$this->db->where('username',$username);
+		$this->db->query("UPDATE `user` SET `nama`='$nama',`email`='$email',`no_telp`='$no_telp',`password`='$password' WHERE `username`='$username'");
+	}
 }	

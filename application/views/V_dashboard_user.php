@@ -35,8 +35,9 @@
                 <i class="fa fa-user"></i>&nbsp; <b><?php echo $this->session->userdata('nama') ?></b>
               </a>
               <ul class="dropdown-menu">
-                <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
-                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                
+                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile/').$this->session->userdata('username'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('login/logout');?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
 
               </ul>
             </li>
@@ -46,7 +47,6 @@
       </nav>
     </header>
   </section>
-
 
   <aside>
     <nav class="rad-sidebar">

@@ -23,43 +23,22 @@
     <header>
       <nav class="rad-navigation">
         <div class="rad-logo-container">
-          <a href="#" class="rad-logo">Ash-Board</a>
+          <a href="<?php echo base_url(); ?>" class="rad-logo">Ash-Board</a>
           <a href="#" class="rad-toggle-btn pull-right"><i class="fa fa-bars"></i></a>
         </div>
         <div class="rad-top-nav-container">
           <ul class="links">
-            <li>
-              <a class="rad-menu-item" href="#"><i class="fa fa-comment-o"></i></a>
-            </li>
-            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-envelope-o"><span class="rad-menu-badge">3</span></i></a>
-              <ul class="rad-dropmenu-item">
-                <li class="rad-dropmenu-header"><a href="#">Your Notifications</a></li>
-                <li class="rad-notification-item">
-                  <a class="rad-notification-content" href="#">
-
-                  </a>
-                </li>
-                <li class="rad-dropmenu-footer"><a href="#">See all notifications</a></li>
-              </ul>
-            </li>
-            <li class="rad-dropdown"><a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge">49</span></i></a>
-              <ul class="rad-dropmenu-item">
-                <li class="rad-dropmenu-header"><a href="#">Your Alerts</a></li>
-                <li class="rad-notification-item">
-                  <a class="rad-notification-content" href="#">
-
-                  </a>
-                </li>
-                <li class="rad-dropmenu-footer"><a href="#">See all alerts</a></li>
-              </ul>
-            </li>
+            
+            
+            
             <li class="dropdown">
               <a class="text-black"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-user"></i>&nbsp; <b><?php echo $this->session->userdata('nama') ?></b>
               </a>
               <ul class="dropdown-menu">
-                <li> <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
-                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                
+                <li> <a class="dropdown-item" href="<?php echo base_url('Dashboard/user_profile/').$this->session->userdata('username'); ?>"><i class="fa fa-cog"></i>&nbsp;Profile Setting</a></li>
+                <li> <a class="dropdown-item" href="<?php echo base_url('login/logout');?>"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
 
               </ul>
             </li>
@@ -74,14 +53,14 @@
   <aside>
     <nav class="rad-sidebar">
       <ul>
-        <li class="hidup">
+        <li>
           <a href="<?php echo base_url('Dashboard'); ?>" class="inbox">
             <i class="fa fa-dashboard"><span class="icon-bg rad-bg-success"></span></i>
             <span class="rad-sidebar-item">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="<?php echo base_url('Dashboard/dashboard_album'); ?>">
+          <a href="<?php echo base_url('Dashboard/album'); ?>">
             <i class="fa fa-file">
               <span class="icon-bg rad-bg-primary"></span>
             </i>
@@ -89,18 +68,28 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo base_url('Dashboard/dashboard_photos'); ?>">
+          <a href="<?php echo base_url('Dashboard/photos'); ?>">
             <i class="fa fa-image">
               <span class="icon-bg rad-bg-danger"></span>
             </i>
             <span class="rad-sidebar-item">Photos</span>
           </a>
         </li>
+<!--         <li><a href="#" class="snooz">
+          <i class="fa fa-line-chart">
+            <span class="icon-bg rad-bg-primary"></span>
+          </i>
+          <span class="rad-sidebar-item">Call trends</span>
+        </a></li>
+        <li><a href="#" class="done"><i class="fa fa-area-chart"><span class="icon-bg rad-bg-warning"></span></i><span class="rad-sidebar-item">Heat maps</span></a></li>
+        <li><a href="#"><i class="fa fa-wrench"><span class="icon-bg rad-bg-violet"></span></i><span class="rad-sidebar-item">Settings</span></a></li> -->
       </ul>
     </nav>
   </aside>
 
   <main>
+  <?php foreach ($user as $u) {
+  ?>
     <section>
       <div class="rad-body-wrapper">
         <div class="container-fluid">
@@ -113,7 +102,7 @@
                 <div class="panel-body">
                   <div class="container-fluid" style="padding-right: 45px;
                   padding-left: 40px;">
-                  <form action="<?php echo base_url('Usermanagement/addUserProcess')?>" method="post">
+                  <form method="post" action="<?php echo base_url('dashboard/update_user/').$this->session->userdata('username');?>">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="row">
@@ -121,7 +110,7 @@
                             <label class="form-control-label" for="input-address">Name</label>
                           </div>
                           <div class="col-8">
-                            <input type="text" name="emp_name" pattern="^[A-Za-z0-9](?!.*?[^\nA-Za-z0-9\s)(\/.#_-]).*?[A-Za-z0-9\s)(]*$" maxlength="30" class="form-control" name="emp_name" required="">
+                            <input type="text" pattern="^[A-Za-z0-9](?!.*?[^\nA-Za-z0-9\s)(\/.#_-]).*?[A-Za-z0-9\s)(]*$" maxlength="30" class="form-control" name="nama" required="" value="<?php echo $u->nama;?>">
                           </div>
                         </div>
                         <br>
@@ -130,7 +119,7 @@
                             <label class="form-control-label" for="input-address">Email</label>
                           </div>
                           <div class="col-8">
-                            <input type="email" class="form-control" maxlength="30" name="email" required="">
+                            <input type="email" class="form-control" maxlength="30" name="email" required="" value="<?php echo $u->email;?>">
                           </div>
                         </div>
                         <br>
@@ -139,7 +128,7 @@
                             <label class="form-control-label" for="input-address">Phone No.</label>
                           </div>
                           <div class="col-8">
-                            <input type="text" onpaste="return false;" onkeypress="return isNumber(event)" maxlength="15" class="form-control" name="phone_num" required="" >
+                            <input type="text" onpaste="return false;" onkeypress="return isNumber(event)" maxlength="15" class="form-control" name="no_telp" required="" value="<?php echo $u->no_telp;?>">
                           </div>
                         </div>
                         <br>
@@ -156,7 +145,7 @@
                             <div class="form-group">
                               <label>Password</label>
                               <div class="input-group" id="show_hide_password">
-                               <input type="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,12}$" title="8-12 that contains uppercase, lowercase, and numeric without whitespace" class="form-control" name="password" id="password">
+                               <input type="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,12}$" title="8-12 that contains uppercase, lowercase, and numeric without whitespace" class="form-control" name="password" id="password" value="<?php echo $u->password;?>">
                                <div class="input-group-addon"  onclick="pass()">
                                  <i class="fa fa-eye-slash" aria-hidden="true"></i>
                                </div>
@@ -194,6 +183,7 @@
   </div>
 </div>
 </section>
+<?php } ?>
 </main>
 
 <script>
@@ -280,7 +270,7 @@
   $("#confirmpass").keyup(function(){
     if ($(this).val() != $('#password').val()) {
       $('#alert2').empty().html(' ');
-      $('#alert2').append('<p style="color:red;">Not match</p>');
+      $('#alert2').append('<p style="color:red;">Password tidak sama</p>');
       $('#button').attr('disabled','disabled');
     } else {
       $('#alert2').empty().html(' ');

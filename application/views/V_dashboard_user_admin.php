@@ -130,20 +130,21 @@
                         <tr>
 
                           <th style="text-align: center;">No</th>
-                          <th style="text-align: center;">Album Name</th>
-                          <th style="text-align: center;">Album Description</th>
+                          <th style="text-align: center;">Username</th>
+                          <th style="text-align: center;">Full Name</th>
                           <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         $no = 1;
-                        for ($i=0; $i < 5; $i++) { 
+                        foreach ($users as $o) {
+                       
                           ?>
                           <tr>
                             <th style="text-align: center;"><?php echo $no++ ?></th>
-                            <th style="text-align: center;"> haha </th>
-                            <th style="text-align: center;"> hihi </th>
+                            <th style="text-align: center;"> <?php echo $o->username; ?> </th>
+                            <th style="text-align: center;"> <?php echo $o->nama; ?> </th>
                             <th>
                              <center>
                               <div class="dropdown">

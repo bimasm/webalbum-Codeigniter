@@ -132,20 +132,22 @@
                         <tr>
 
                           <th style="text-align: center;">No</th>
-                          <th style="text-align: center;">Photos Name</th>
-                          <th style="text-align: center;">Photos Description</th>
+                          <th style="text-align: center;">Photos</th>
+                          <th style="text-align: center;">Description</th>
+                          <th style="text-align: center;">Album</th>
                           <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         $no = 1;
-                        for ($i=0; $i < 5; $i++) { 
+                        foreach ($foto as $key) {
                           ?>
                           <tr>
                             <th style="text-align: center;"><?php echo $no++ ?></th>
-                            <th style="text-align: center;"> haha </th>
-                            <th style="text-align: center;"> hihi </th>
+                            <th style="text-align: center;"> <image style="width:60px;height:40px" src="<?php echo base_url('assets/uploads/').$key->gambar; ?>"> </th>
+                            <th style="text-align: center;"> <?php echo $key->deskripsi;?> </th>
+                            <th style="text-align: center;"> <?php echo $key->album;?> </th>
                             <th>
                               <center>
                                 <div class="dropdown">

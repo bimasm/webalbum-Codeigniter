@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 03 Apr 2019 pada 22.40
+-- Waktu pembuatan: 04 Apr 2019 pada 18.56
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `keterangan` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   PRIMARY KEY (`id_notif`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `notification`
@@ -115,8 +115,8 @@ CREATE TABLE IF NOT EXISTS `notification` (
 
 INSERT INTO `notification` (`id_notif`, `keterangan`, `username`) VALUES
 (1, 'new user', 'edinugroho'),
-(2, 'new user', 'budi'),
-(3, 'new user', 'novaliapopy');
+(4, 'new user', 'dedy'),
+(5, 'new user', 'gembel');
 
 -- --------------------------------------------------------
 
@@ -125,24 +125,25 @@ INSERT INTO `notification` (`id_notif`, `keterangan`, `username`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `no_telp` int(13) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `status` varchar(11) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`user_id`, `nama`, `email`, `no_telp`, `username`, `password`, `status`) VALUES
-(1, 'Bima Susila Mukti', 'kepo.cok@gmail.com', 2147483647, 'bimasm', 'aqua0505', 'is_active'),
-(2, 'Edi Dwi Nugroho', 'lostpower6@gmail.com', 2147483647, 'edinugroho', 'aqua0505', 'not_active'),
-(3, 'Novalia Widya Popy', 'novaliapopy39@gmail.com', 2147483647, 'novaliapopy', 'aqua0505', 'not_active');
+INSERT INTO `user` (`nama`, `email`, `no_telp`, `username`, `password`, `status`) VALUES
+('Bima Susila Mukti', 'kepo.cok@gmail.com', '085204848227', 'bimasm', 'Aqua0505', 'is_active'),
+('deddy corbuzier', 'dedybotak@gmail.com', '085204848230', 'dedy', 'aqua0505', 'not_active'),
+('Edi Dwi Nugroho', 'lostpower6@gmail.com', '085204848228', 'edinugroho', 'aqua0505', 'not_active'),
+('gembel jomblo', 'gembel@gmail.com', '085204848231', 'gembel', 'aqua0505', 'not_active'),
+('Novalia Widya Popy', 'novaliapopy39@gmail.com', '085204848229', 'novaliapopy', 'aqua0505', 'is_active');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

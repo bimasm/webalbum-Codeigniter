@@ -32,4 +32,7 @@ class M_album extends CI_Model{
     $query=$this->db->get('gambar');
     return $query->result();
 	}
+	function admin_foto(){
+		return $this->db->get('gambar')->result();
+	}
 }

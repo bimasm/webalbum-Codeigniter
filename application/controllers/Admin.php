@@ -51,6 +51,7 @@ class Admin extends CI_Controller {
 		$data['angka'] = $this->M_notif->jumlah();
 		$data['jmluser'] = $this->M_notif->jmluser();
 		$data['jmlalbum'] = $this->M_notif->jmlalbum();
+		$data['foto'] = $this->M_album->admin_foto();
 		$this->load->view('V_dashboard_photos_admin',$data);
 		$this->load->view('V_footer_dashboard');
 		}else{
@@ -81,6 +82,8 @@ class Admin extends CI_Controller {
 		$data['angka'] = $this->M_notif->jumlah();
 		$data['jmluser'] = $this->M_notif->jmluser();
 		$data['jmlalbum'] = $this->M_notif->jmlalbum();
+		$data['users'] = $this->M_user->user();
+
 		$this->load->view('V_dashboard_user_admin',$data);
 		$this->load->view('V_footer_dashboard');
 		}else{
