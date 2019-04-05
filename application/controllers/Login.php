@@ -49,7 +49,14 @@ class Login extends CI_Controller {
 	}
 
 	public function logout(){
-		$this->session->unset_userdata();
+		$data_session = array(
+				'username' => $username,
+				'password' => $password,
+				'nama' => $nama,
+				'status' => $status,
+				'statses' => "login" 
+				);
+		$this->session->unset_userdata($data_session);
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
