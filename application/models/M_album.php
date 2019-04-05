@@ -35,4 +35,30 @@ class M_album extends CI_Model{
 	function admin_foto(){
 		return $this->db->get('gambar')->result();
 	}
+	function delete($gambar){
+    	$this->db->where($gambar);
+    	$this->db->delete('gambar');
+    }
+    function show_album_by_user($user){
+    	return $this->db->query("SELECT * FROM `album` WHERE `owner`='$user'")->result();
+    }
+    function show_foto_by_user($user){
+    	
+    	return $this->db->query("SELECT * FROM `gambar` WHERE `owner` ='$user'")->result();
+
+    }
+    function delete_by_user($gambar){
+    	$this->db->where($gambar);
+    	$this->db->delete('gambar');
+    }
+    function delete_album_by_user($album_id){
+    	$this->db->where($album_id);
+    	$this->db->delete('album');
+    }
+    function editalbum($keterangan,$nama_album){
+        return $this->db->query("UPDATE `album` SET `keterangan`='$keterangan' WHERE `nama_album`='$nama_album'");
+    }
+    function editfoto($deskripsi,$gambar){
+        return $this->db->query("UPDATE `gambar` SET `deskripsi`='$deskripsi' WHERE `gambar`='$gambar'");
+    }
 }

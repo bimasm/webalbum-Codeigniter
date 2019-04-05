@@ -152,7 +152,11 @@
                 <h3 class="panel-title text-center">Foto</h3>
               </div>
               <div class="panel-body">
-               <h1 class="counter text-center text-primary" style="font-size:20;"><b>233</b></h1>
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b><?php foreach($jmlphoto as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?></b></h1>
               </div>
             </div>
           </div>

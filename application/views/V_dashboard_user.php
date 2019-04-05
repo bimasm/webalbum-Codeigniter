@@ -86,21 +86,40 @@
   </aside>
 
   <main>
-    <section>
+       <section>
       <div class="rad-body-wrapper">
         <div class="container-fluid">
 
           <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Bar Chart</h3>
-                </div>
-                <div class="panel-body">
-                  <div id="barChart" class="rad-chart"></div>
-                </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading1">
+                <h3 class="panel-title text-center">Album</h3>
+              </div>
+              <div class="panel-body">
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b><?php foreach($jmlalbumuser as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?></b></h1>
               </div>
             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading2">
+                <h3 class="panel-title text-center">Foto</h3>
+              </div>
+              <div class="panel-body">
+               <h1 class="counter text-center text-primary" style="font-size:20;"><b><?php foreach($jmlphotouser as $o){ ?>
+
+                 <?php echo $o->total; ?>
+
+                  <?php } ?></b></h1>
+              </div>
+            </div>
+          </div>
+          
           </div>
         </div>
       </div>

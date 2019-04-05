@@ -33,6 +33,7 @@ class Album extends CI_Controller {
         
         $deskripsi = $this->input->post('deskripsi');
         $album= $this->input->post('album');
+        $owner= $this->input->post('owner');
         if(!empty($_FILES['gambar']['name']))
         {       
             $config['upload_path'] =  realpath('./assets/uploads/');
@@ -57,7 +58,8 @@ class Album extends CI_Controller {
                 
                 'gambar'         => $file['file_name'],
                 'deskripsi'     => $deskripsi,
-                'album'           => $album
+                'album'           => $album,
+                'owner'           => $owner
             );
             
                 $insert = $this->M_album->add_foto($data);

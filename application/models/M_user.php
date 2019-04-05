@@ -39,4 +39,21 @@ class M_user extends CI_Model{
 		$this->db->where('username',$username);
 		$this->db->query("UPDATE `user` SET `nama`='$nama',`email`='$email',`no_telp`='$no_telp',`password`='$password' WHERE `username`='$username'");
 	}
+	function deleteuser($username){
+    	$this->db->where($username);
+    	$this->db->delete('user');
+    }
+    function deletenotif($username){
+    	$this->db->where($username);
+    	$this->db->delete('notification');
+    }
+    function edit_user_by_admin($nama,$email,$no_telp,$password,$username){
+    	return $this->db->query("UPDATE `user` SET `nama`='$nama',`email`='$email',`no_telp`='$no_telp',`password`='$password' WHERE `username`='$username'");
+    }
+    function activate($username){
+    	return $this->db->query("UPDATE `user` SET `status`='is_active' WHERE `username`='$username'");
+    }
+    function disable($username){
+    	return $this->db->query("UPDATE `user` SET `status`='not_active' WHERE `username`='$username'");
+    }
 }	

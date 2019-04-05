@@ -155,8 +155,8 @@
                                     <i class="fa fa-cogs" style="color: #e51f40"></i>
                                   </a>
                                   <ul class="dropdown-menu">
-                                    <li> <a class="dropdown-item" href="#"><i class="fa fa-pencil" ></i>&nbsp; Edit</a></li>
-                                    <li> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_delete" data-idposition=""><i class="fa fa-trash"></i>&nbsp; Delete</a></li>
+                                    
+                                    <li> <a class="dropdown-item" href="<?php echo base_url();?>admin/deleteimg/<?php echo $key->gambar;?>"><i class="fa fa-trash"></i>&nbsp; Delete</a></li>
 
                                   </ul>
                                 </div>

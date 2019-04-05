@@ -16,6 +16,31 @@ a:hover {
 .hidup{
   background: #263340;
 }
+.panel-heading1 {
+  background: #f94d4d !important;
+  border-radius: 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.panel-heading2 {
+  background: #3a92ec !important;
+  border-radius: 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.panel-heading3 {
+  background: #0c9649 !important;
+  border-radius: 0;
+  padding: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.panel-heading1,.panel-heading2,.panel-heading3,.panel-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  color: #dce0f3;
+}
 .rad-navigation {
   position: fixed;
   left: 0;

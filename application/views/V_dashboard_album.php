@@ -109,14 +109,16 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <?php $noo = 1; ?>
                         <?php
                         $no = 1;
-                        for ($i=0; $i < 5; $i++) { 
+                       foreach ($album as $i) {
+                        
                           ?>
                           <tr>
                             <th style="text-align: center;"><?php echo $no++ ?></th>
-                            <th style="text-align: center;"> haha </th>
-                            <th style="text-align: center;"> hihi </th>
+                            <th style="text-align: center;"> <?php echo $i->nama_album; ?> </th>
+                            <th style="text-align: center;"> <?php echo $i->keterangan; ?> </th>
                             <th>
                              <center>
                               <div class="dropdown">
@@ -124,8 +126,8 @@
                                   <i class="fa fa-cogs" style="color: #e51f40"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                  <li> <a class="dropdown-item" href="#"><i class="fa fa-pencil" ></i>&nbsp; Edit</a></li>
-                                  <li> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_delete" data-idposition=""><i class="fa fa-trash"></i>&nbsp; Delete</a></li>
+                                  <li> <a data-toggle="modal" data-target="#edit<?php echo $noo++ ?>"><i class="fa fa-pencil" ></i>&nbsp; Edit</a></li>
+                                  <li> <a class="dropdown-item" href="<?php echo base_url();?>dashboard/deletealbum/<?php echo $i->album_id;?>"><i class="fa fa-trash"></i>&nbsp; Delete</a></li>
                                   
                                 </ul>
                               </div>
@@ -148,4 +150,42 @@
 </section>
 </main>
 
+
+<?php $noo = 1; ?>
+<?php foreach ($album as $o) { ?>
+
+<div id="edit<?php echo $noo++ ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header"><br>
+        <h4 class="modal-title">Edit Album</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form action="<?php echo base_url(); ?>dashboard/editalbum" method = "POST">
+        <div class="modal-body">  
+          <div class="col-md-12"><br>
+           <div class="form-group">
+           <label class="form-control-label" for="input-address">Nama Album</label>
+              <input type="text" class="form-control" name="nama_album" required="" value="<?php echo $o->nama_album; ?>" readonly>
+              
+            </div>
+
+             <div class="form-group">
+              <label class="form-control-label" for="input-address">Description</label>
+              <input type="text" class="form-control" name="keterangan" required="" value="<?php echo $o->keterangan; ?>">
+            </div>
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn text-white btn btn-primary" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+ <?php } ?>
 
